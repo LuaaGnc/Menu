@@ -1,3 +1,4 @@
+import os.path
 from time import sleep
 
 # Definição de Cores a utilizar
@@ -24,8 +25,6 @@ opcoes = {
 
 def introd_menu(numero='0'):
 
-
-    
     print('-' * 30)
     print(cores[5] + f'{opcoes["zero"].center(30)}' + cores[7])
     print('-' * 30)
@@ -43,7 +42,7 @@ def introd_menu(numero='0'):
         valido_menu(num)
     
 
-
+# Valida se o número é ou não válido
 def valido_menu(numero):
     """
     :param numero: Valor qualquer
@@ -58,10 +57,17 @@ def valido_menu(numero):
         print('-' * 60)
         print(f' Opção {numero}'.center(60))
         print('-' * 60, end='\n\n')
-        sleep(1.5)
+        sleep(0.3)
+        
+        if numero == '1':
+            opt1()
+        else:
+            opt2()
+        
+        sleep(2)
         introd_menu()
-    
-    elif numero in '4567890' or len(numero) > 1:
+
+    else:
         # Significa que cometeram um erro
         if numero.isnumeric():
             print(cores[1] + 'ERRO!! -> Digite um valor válido!\n\n' + cores[7])
@@ -71,6 +77,42 @@ def valido_menu(numero):
             print(cores[1] + 'ERRO!! -> Digite um número inteiro válido\n\n' + cores[7])
             sleep(1.5)
             introd_menu()
+
+
+# Ver pessoas cadastradas
+def opt1():
+    # Local de armazenamento do arquivo
+    path = 'C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\Armazem\\db.txt'
+    
+    # Se o arquivo não for encontrado, ele cria um arquivo
+    try:
+        # Abre para leitura
+        arquivo = open(path, 'r+')
+    except FileNotFoundError:
+        # Cria o arquivo
+        arquivo = open(path, 'w+')
+    
+    for i in arquivo.readlines():
+        print(f' --> {i}')
+    print()
+
+
+# Cadastrar uma pessoa
+def opt2():
+    
+    # Abre o arquivo no PATH determinado e no APPEND mode
+    file = open('C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\Armazem\\db.txt', 'a+')
+    
+    nome = input(cores[5] + 'Digite o nome da pessoa: ' + cores[7])
+    idade = int(input(cores[5] + 'Digite a idade da pessoa: ' + cores[7]))
+    
+    # Escreve no arquivo
+    file.write(f'nome: {nome} + idd: {idade}\n')
+    file.close()
+    
+    print('-' * 30)
+    print(cores[2] + 'CADASTRADO COM SUCESSO'.center(30) + cores[7])
+    print('-' * 30)
             
 def saida():
     print('-' * 100)

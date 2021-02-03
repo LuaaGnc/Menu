@@ -1,0 +1,8 @@
+nome: Luis + idd: 17
+nome: Andre + idd: 20
+nome: Smith + idd: 40
+nome: Carlos + idd: 3
+nome: Jose + idd: 75
+nome: Ana Nunes + idd: 51
+nome: Bia Andrade + idd: 16
+nome: Couple + idd: 26
