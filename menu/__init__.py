@@ -82,7 +82,7 @@ def valido_menu(numero):
 # Ver pessoas cadastradas
 def opt1():
     # Local de armazenamento do arquivo
-    path = 'C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\Armazem\\db.txt'
+    path = 'C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\db\\db.txt'
     
     # Se o arquivo não for encontrado, ele cria um arquivo
     try:
@@ -101,7 +101,7 @@ def opt1():
 def opt2():
     
     # Abre o arquivo no PATH determinado e no APPEND mode
-    file = open('C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\Armazem\\db.txt', 'a+')
+    file = open('C:\\Users\\luisg\\OneDrive\\Documentos\\GitHub\\Menu\\db\\db.txt', 'a+')
     
     nome = input(cores[5] + 'Digite o nome da pessoa: ' + cores[7])
     idade = int(input(cores[5] + 'Digite a idade da pessoa: ' + cores[7]))
